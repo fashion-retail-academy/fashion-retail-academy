@@ -1,87 +1,97 @@
 "use client";
 
-import { useState } from "react";
-import LessonProgressLink from "../LessonProgressLink";
-import { useParams } from "next/navigation";
-import { createClient } from "@/lib/supabase/client";
+import { useEffect, useState } from "react";
+import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-const lessons: Record<string, string> = {
-  "lesson-1": "Introduction to Fashion Merchandise Planning",
-  "lesson-2": "Merchandise Financial Planning (MFP)",
-  "lesson-3": "WSSI Planning",
-  "lesson-4": "Open to Buy (OTB)",
-  "lesson-5": "Assortment Planning",
-  "lesson-6": "WOS & ROS",
-  "lesson-7": "Sell-Through Planning",
-  "lesson-8": "Inventory Planning",
+import LessonProgressLink from "../LessonProgressLink";
+import { createClient } from "@/lib/supabase/client";
+
+type Lesson = {
+  id: string;
+  lesson_number: number;
+  title: string;
+  slug: string;
+  description: string | null;
+  duration_minutes: number | null;
 };
 
-export default function LessonPage() {
+export default function LearnPage() {
   const params = useParams();
+  const router = useRouter();
 
   const slug = params.slug as string;
-  const lesson = params.lesson as string;
 
-  const [completed, setCompleted] = useState(false);
-  const [saving, setSaving] = useState(false);
+  const [lessons, setLessons] = useState<Lesson[]>([]);
+  const [completedLessons, setCompletedLessons] = useState<string[]>([]);
+  const [courseTitle, setCourseTitle] = useState("");
+  const [loading, setLoading] = useState(true);
 
-  const lessonTitle = lessons[lesson];
-
-  async function markComplete() {
-    try {
-      setSaving(true);
-
+  useEffect(() => {
+    async function loadCourse() {
       const supabase = createClient();
 
       const {
         data: { user },
-        error: userError,
       } = await supabase.auth.getUser();
 
-      if (userError || !user) {
-        alert("Please log in to save your progress.");
+      if (!user) {
+        router.push("/login");
         return;
       }
 
-      const { error } = await supabase
+      const { data: course, error: courseError } = await supabase
+        .from("courses")
+        .select("id, title")
+        .eq("slug", slug)
+        .single();
+
+      if (courseError || !course) {
+        console.error("COURSE ERROR:", courseError);
+        setLoading(false);
+        return;
+      }
+
+      setCourseTitle(course.title);
+
+      const { data: lessonData, error: lessonError } = await supabase
+        .from("lessons")
+        .select(
+          "id, lesson_number, title, slug, description, duration_minutes"
+        )
+        .eq("course_id", course.id)
+        .eq("published", true)
+        .order("lesson_number", { ascending: true });
+
+      if (lessonError) {
+        console.error("LESSON ERROR:", lessonError);
+      } else {
+        setLessons(lessonData || []);
+      }
+
+      const { data: progressData, error: progressError } = await supabase
         .from("lesson_progress")
-        .upsert(
-          {
-            user_id: user.id,
-            course_slug: slug,
-            lesson_slug: lesson,
-            completed: true,
-            completed_at: new Date().toISOString(),
-          },
-          {
-            onConflict: "user_id,course_slug,lesson_slug",
-          }
-        );
+        .select("lesson_slug, completed")
+        .eq("course_slug", slug)
+        .eq("completed", true);
 
-      if (error) {
-        console.error("PROGRESS ERROR:", error);
-        alert("Unable to save progress. Please try again.");
-        return;
+      if (progressError) {
+        console.error("PROGRESS ERROR:", progressError);
+      } else {
+        setCompletedLessons(
+          (progressData || []).map((item) => item.lesson_slug)
+        );
       }
 
-      setCompleted(true);
-      alert("Lesson completed!");
-    } catch (error) {
-      console.error("PROGRESS ERROR:", error);
-      alert("Something went wrong. Please try again.");
-    } finally {
-      setSaving(false);
+      setLoading(false);
     }
-  }
 
-  if (!lessonTitle) {
+    loadCourse();
+  }, [slug, router]);
+
+  if (loading) {
     return (
-      <main style={{ padding: "40px" }}>
-        <h1>Lesson not found</h1>
-
-        <Link href={`/learn/${slug}`}>
-          ← Back to Course
-        </Link>
+      <main style={{ padding: "40px", textAlign: "center" }}>
+        <h2>Loading your course...</h2>
       </main>
     );
   }
@@ -91,99 +101,121 @@ export default function LessonPage() {
       style={{
         maxWidth: "1000px",
         margin: "0 auto",
-        padding: "50px 24px",
+        padding: "40px 20px",
       }}
     >
-      <Link href={`/learn/${slug}`}>
-        ← Back to Course
-      </Link>
-
-      <div
+      <Link
+        href="/dashboard"
         style={{
-          marginTop: "40px",
-          background: "#ffffff",
-          padding: "40px",
-          borderRadius: "16px",
-          border: "1px solid #ddd",
+          textDecoration: "none",
+          fontWeight: "600",
+          color: "#0b1026",
         }}
       >
-        <p
-          style={{
-            letterSpacing: "3px",
-            fontSize: "13px",
-            fontWeight: "600",
-          }}
-        >
-          {lesson.replace("lesson-", "LESSON ")}
-        </p>
+        ← Back to Dashboard
+      </Link>
 
+      <div style={{ marginTop: "30px" }}>
         <h1
           style={{
-            fontSize: "40px",
-            marginTop: "12px",
+            fontSize: "36px",
+            marginBottom: "10px",
+            color: "#0b1026",
           }}
         >
-          {lessonTitle}
+          {courseTitle}
         </h1>
 
-        <p
-          style={{
-            fontSize: "18px",
-            lineHeight: "1.8",
-            marginTop: "25px",
-          }}
-        >
-          Welcome to the Fashion Retail Academy.
+        <p style={{ color: "#666", marginBottom: "30px" }}>
+          Your lessons
         </p>
 
-        <p
-          style={{
-            fontSize: "18px",
-            lineHeight: "1.8",
-            marginTop: "15px",
-          }}
-        >
-          In this lesson, you will learn the fundamentals of fashion
-          merchandise planning and understand how planning supports sales,
-          inventory and profitability.
-        </p>
+        {lessons.length === 0 ? (
+          <div
+            style={{
+              padding: "30px",
+              border: "1px solid #ddd",
+              borderRadius: "12px",
+            }}
+          >
+            No lessons are available yet.
+          </div>
+        ) : (
+          <div style={{ display: "grid", gap: "15px" }}>
+            {lessons.map((lesson) => {
+              const completed = completedLessons.includes(lesson.slug);
 
-        <div
-          style={{
-            marginTop: "35px",
-            padding: "25px",
-            background: "#f5f7fa",
-            borderRadius: "12px",
-          }}
-        >
-          <h2>Lesson Content</h2>
+              return (
+                <div
+                  key={lesson.id}
+                  style={{
+                    padding: "22px",
+                    border: "1px solid #e2e2e2",
+                    borderRadius: "12px",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    gap: "20px",
+                    background: "#fff",
+                  }}
+                >
+                  <div>
+                    <div
+                      style={{
+                        fontSize: "14px",
+                        fontWeight: "600",
+                        color: "#777",
+                        marginBottom: "5px",
+                      }}
+                    >
+                      LESSON {lesson.lesson_number}
+                    </div>
 
-          <p style={{ marginTop: "15px", lineHeight: "1.8" }}>
-            Video lecture and downloadable learning materials will appear
-            here.
-          </p>
-        </div>
+                    <h2
+                      style={{
+                        margin: "0 0 7px",
+                        fontSize: "20px",
+                        color: "#0b1026",
+                      }}
+                    >
+                      {lesson.title}
+                    </h2>
 
-        <button
-          onClick={markComplete}
-          disabled={saving || completed}
-          style={{
-            marginTop: "30px",
-            padding: "13px 24px",
-            background: completed ? "#16834b" : "#0b1026",
-            color: "#ffffff",
-            border: "none",
-            borderRadius: "8px",
-            fontWeight: "600",
-            cursor: completed ? "default" : "pointer",
-          }}
-        >
-          {saving
-            ? "Saving..."
-            : completed
-              ? "Lesson Completed ✓"
-              : "Mark Lesson Complete"}
-        </button>
+                    {lesson.description && (
+                      <p
+                        style={{
+                          margin: "0",
+                          color: "#666",
+                          lineHeight: "1.5",
+                        }}
+                      >
+                        {lesson.description}
+                      </p>
+                    )}
+
+                    {lesson.duration_minutes && (
+                      <div
+                        style={{
+                          marginTop: "8px",
+                          fontSize: "13px",
+                          color: "#888",
+                        }}
+                      >
+                        {lesson.duration_minutes} minutes
+                      </div>
+                    )}
+                  </div>
+
+                  <LessonProgressLink
+                    slug={slug}
+                    lessonNumber={lesson.lesson_number}
+                    completed={completed}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </main>
   );
