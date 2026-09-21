@@ -60,26 +60,7 @@ export default function RegisterPage() {
     return;
   }
 
-  if (data.user) {
-    const { error: profileError } = await supabase
-      .from("profiles")
-      .upsert({
-        id: data.user.id,
-        full_name: form.fullName,
-        mobile: form.mobile,
-        whatsapp: form.whatsapp,
-        city: form.city,
-        experience: form.experience,
-        role_title: form.roleTitle,
-        company: form.company,
-      });
-
-    if (profileError) {
-      setError(profileError.message);
-      setLoading(false);
-      return;
-    }
-
+  
     const courseSlug = new URLSearchParams(window.location.search).get(
       "course"
     );
@@ -98,7 +79,7 @@ export default function RegisterPage() {
       }
 
      
-    }
+
 
     setMessage(
     "Registration successful! Please continue to payment to access your course."
