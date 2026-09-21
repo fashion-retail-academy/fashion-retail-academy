@@ -31,7 +31,7 @@ export default function RegisterPage() {
     });
   }
 
-  async function handleSubmit(e: FormEvent) {
+async function handleSubmit(e: FormEvent) {
   e.preventDefault();
 
   setLoading(true);
@@ -42,6 +42,7 @@ export default function RegisterPage() {
     email: form.email,
     password: form.password,
     options: {
+      emailRedirectTo: "https://www.fashionretailacademy.com",
       data: {
         full_name: form.fullName,
         mobile: form.mobile,
@@ -60,34 +61,14 @@ export default function RegisterPage() {
     return;
   }
 
-  
-    const courseSlug = new URLSearchParams(window.location.search).get(
-      "course"
-    );
-
-    if (courseSlug) {
-      const { data: course, error: courseError } = await supabase
-        .from("courses")
-        .select("id")
-        .eq("slug", courseSlug)
-        .single();
-
-      if (courseError) {
-        setError(courseError.message);
-        setLoading(false);
-        return;
-      }
-
-     
-
-
+  if (data.user) {
     setMessage(
-    "Registration successful! Please continue to payment to access your course."
+      "Account created successfully! Please check your email and click the confirmation link to activate your account."
     );
   }
 
   setLoading(false);
-}
+}  
 
   return (
     <main className="min-h-screen bg-slate-950 px-6 py-16">
