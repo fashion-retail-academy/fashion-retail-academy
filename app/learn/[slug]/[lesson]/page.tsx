@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import LessonProgressLink from "./LessonProgressLink";
+import LessonProgressLink from "../LessonProgressLink";
 import { useParams } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import Link from "next/link";
