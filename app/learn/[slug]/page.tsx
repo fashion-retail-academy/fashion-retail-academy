@@ -50,7 +50,24 @@ export default function LearnPage() {
         setLoading(false);
         return;
       }
+const { data: enrollment, error: enrollmentError } = await supabase
+  .from("enrollments")
+  .select("id, status")
+  .eq("user_id", user.id)
+  .eq("course_id", course.id)
+  .eq("status", "active")
+  .maybeSingle();
 
+if (enrollmentError) {
+  console.error("ENROLLMENT CHECK ERROR:", enrollmentError);
+  setLoading(false);
+  return;
+}
+
+if (!enrollment) {
+  router.push(`/courses/${slug}`);
+  return;
+}
       setCourseTitle(course.title);
 
       const { data: lessonData, error: lessonError } = await supabase
