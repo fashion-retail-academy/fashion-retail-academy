@@ -14,6 +14,7 @@ type Lesson = {
   content: string | null;
   video_url: string | null;
   resource_url: string | null;
+workbook_url: string | null;  
   duration_minutes: number | null;
 };
 
@@ -56,9 +57,10 @@ export default function LessonPage() {
 
       const { data: lessonData, error: lessonError } = await supabase
         .from("lessons")
-        .select(
-          "id, lesson_number, title, slug, description, content, video_url, resource_url, duration_minutes"
-        )
+    .select(
+  "id, lesson_number, title, slug, description, content, video_url, resource_url, workbook_url, duration_minutes"
+)    
+    
         .eq("course_id", course.id)
         .eq("slug", lessonSlug)
         .eq("published", true)
@@ -284,27 +286,47 @@ export default function LessonPage() {
             </div>
           </section>
         )}
+{lesson.resource_url && (
+  <div style={{ marginBottom: "20px" }}>
+    <a
+      href={lesson.resource_url}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        display: "inline-block",
+        padding: "13px 22px",
+        borderRadius: "8px",
+        background: "#f1f3f5",
+        color: "#0b1026",
+        textDecoration: "none",
+        fontWeight: "600",
+      }}
+    >
+      Download Lesson Notes (PDF)
+    </a>
+  </div>
+)}
 
-        {lesson.resource_url && (
-          <div style={{ marginBottom: "35px" }}>
-            <a
-              href={lesson.resource_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-block",
-                padding: "13px 22px",
-                borderRadius: "8px",
-                background: "#f1f3f5",
-                color: "#0b1026",
-                textDecoration: "none",
-                fontWeight: "600",
-              }}
-            >
-              Download Lesson Resource
-            </a>
-          </div>
-        )}
+{lesson.workbook_url && (
+  <div style={{ marginBottom: "35px" }}>
+    <a
+      href={lesson.workbook_url}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        display: "inline-block",
+        padding: "13px 22px",
+        borderRadius: "8px",
+        background: "#f1f3f5",
+        color: "#0b1026",
+        textDecoration: "none",
+        fontWeight: "600",
+      }}
+    >
+      Download Excel Workbook
+    </a>
+  </div>
+)}
 
         <div
           style={{
