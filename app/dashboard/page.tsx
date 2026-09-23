@@ -227,24 +227,51 @@ if (progressError) {
             My Learning
           </h2>
 
-          <div className="mt-6 rounded-xl border border-dashed border-slate-300 p-10 text-center">
+<div className="mt-6 rounded-xl border border-slate-200 bg-white p-6">
+  <p className="text-sm font-semibold text-slate-500">
+    ENROLLED COURSE
+  </p>
 
-            <h3 className="text-lg font-semibold">
-              No courses yet
-            </h3>
+  <h3 className="mt-2 text-xl font-bold text-slate-900">
+    Fashion Merchandise Planning
+  </h3>
 
-            <p className="mt-2 text-slate-500">
-              Explore our courses and start learning.
-            </p>
+  <p className="mt-2 text-slate-500">
+    Continue your merchandise planning course and complete your remaining lessons.
+  </p>
 
-            <a
-              href="/courses"
-              className="mt-6 inline-block rounded-xl bg-slate-950 px-6 py-3 font-semibold text-white"
-            >
-              Explore Courses
-            </a>
+  <div className="mt-4 flex items-center justify-between text-sm">
+    <span className="font-semibold text-slate-700">
+      Progress
+    </span>
+    <span className="text-slate-500">
+      {completedLessons} / {totalLessons} lessons
+    </span>
+  </div>
 
-          </div>
+  <div className="mt-2 h-3 w-full overflow-hidden rounded-full bg-slate-200">
+    <div
+      className="h-full rounded-full bg-[#0b1026]"
+      style={{
+        width: `${
+          totalLessons > 0
+            ? Math.min(
+                100,
+                Math.round((completedLessons / totalLessons) * 100)
+              )
+            : 0
+        }%`,
+      }}
+    />
+  </div>
+
+  <a
+    href="/learn/fashion-merchandise-planning"
+    className="mt-6 inline-block rounded-xl bg-[#0b1026] px-6 py-3 font-semibold text-white"
+  >
+    Continue Learning
+  </a>
+</div>         
 
         </section>
 
