@@ -12,6 +12,7 @@ export default function DashboardPage() {
 const [courseCount, setCourseCount] = useState(0);
 const [completedLessons, setCompletedLessons] = useState(0);
 const [totalLessons, setTotalLessons] = useState(0);
+const courseCompleted = totalLessons > 0 && completedLessons >= totalLessons;
   useEffect(() => {
     async function loadProfile() {
       const {
@@ -271,7 +272,27 @@ if (progressError) {
   >
     Continue Learning
   </a>
-</div>         
+</div>
+{courseCompleted && (
+  <div className="mt-6 rounded-xl border border-emerald-200 bg-emerald-50 p-5">
+    <p className="text-lg font-bold text-emerald-800">
+      🎓 Course Completed
+    </p>
+
+    <p className="mt-2 text-sm text-emerald-700">
+      Congratulations! You have successfully completed all 10 lessons.
+    </p>
+
+    <a
+      href="/resources/Fashion_Retail_Academy_Certificate_Template.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mt-4 inline-block rounded-xl bg-[#0b1026] px-6 py-3 font-semibold text-white"
+    >
+      Download Certificate
+    </a>
+  </div>
+)}        
 
         </section>
 
