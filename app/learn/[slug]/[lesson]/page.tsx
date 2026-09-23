@@ -143,12 +143,13 @@ export default function LessonPage() {
 
       error = result.error;
     } else {
-      const result = await supabase.from("lesson_progress").insert({
-        course_slug: courseSlug,
-        lesson_slug: lessonSlug,
-        completed: true,
-        completed_at: new Date().toISOString(),
-      });
+const result = await supabase.from("lesson_progress").insert({
+  user_id: user.id,
+  course_slug: courseSlug,
+  lesson_slug: lessonSlug,
+  completed: true,
+  completed_at: new Date().toISOString(),
+});      
 
       error = result.error;
     }
