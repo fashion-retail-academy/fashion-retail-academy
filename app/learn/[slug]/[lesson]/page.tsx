@@ -53,6 +53,23 @@ export default function LessonPage() {
         console.error("COURSE ERROR:", courseError);
         setLoading(false);
         return;
+      }      const { data: enrollment, error: enrollmentError } = await supabase
+        .from("enrollments")
+        .select("id")
+        .eq("user_id", user.id)
+        .eq("course_id", course.id)
+        .eq("status", "active")
+        .maybeSingle();
+
+      if (enrollmentError) {
+        console.error("ENROLLMENT ERROR:", enrollmentError);
+        setLoading(false);
+        return;
+      }
+
+      if (!enrollment) {
+        router.push(`/courses/${courseSlug}`);
+        return;
       }
 
       const { data: lessonData, error: lessonError } = await supabase
