@@ -284,7 +284,7 @@ if (progressError) {
     </p>
 
     <a
-      href="/resources/Fashion_Retail_Academy_Certificate_Template.pdf"
+  href="/api/razorpay/certificate"
       target="_blank"
       rel="noopener noreferrer"
       className="mt-4 inline-block rounded-xl bg-[#0b1026] px-6 py-3 font-semibold text-white"
