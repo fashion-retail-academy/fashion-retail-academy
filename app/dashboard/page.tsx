@@ -209,7 +209,9 @@ if (progressError) {
             </p>
 
             <h2 className="mt-3 text-3xl font-bold">
-              0%
+{totalLessons > 0
+  ? `${Math.round((completedLessons / totalLessons) * 100)}%`
+  : "0%"}
             </h2>
 
             <p className="mt-2 text-slate-500">
