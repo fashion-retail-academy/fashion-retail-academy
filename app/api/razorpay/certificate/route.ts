@@ -157,7 +157,41 @@ const studentName =
 
     const certificateNumber =
       `FRA-FMP-${user.id.replace(/-/g, "").slice(0, 8).toUpperCase()}`;
+const { data: existingCertificate, error: certificateLookupError } =
+  await supabase
+    .from("certificates")
+    .select("id")
+    .eq("certificate_number", certificateNumber)
+    .maybeSingle();
 
+if (certificateLookupError) {
+  console.error(certificateLookupError);
+  return NextResponse.json(
+    { error: "Unable to verify certificate record." },
+    { status: 500 }
+  );
+}
+
+if (!existingCertificate) {
+  const { error: certificateInsertError } = await supabase
+    .from("certificates")
+    .insert({
+      certificate_number: certificateNumber,
+      user_id: user.id,
+      course_id: course.id,
+      student_name: studentName,
+      course_title: course.title,
+      completed_at: new Date().toISOString(),
+    });
+
+  if (certificateInsertError) {
+    console.error(certificateInsertError);
+    return NextResponse.json(
+      { error: "Unable to save certificate record." },
+      { status: 500 }
+    );
+  }
+}
     // Cover the template student-name placeholder
 page.drawRectangle({
   x: 70 * MM,
