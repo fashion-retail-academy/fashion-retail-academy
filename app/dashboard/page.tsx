@@ -10,6 +10,8 @@ export default function DashboardPage() {
   const [name, setName] = useState("Student");
   const [loading, setLoading] = useState(true);
 const [courseCount, setCourseCount] = useState(0);
+const [completedLessons, setCompletedLessons] = useState(0);
+const [totalLessons, setTotalLessons] = useState(0);
   useEffect(() => {
     async function loadProfile() {
       const {
@@ -27,6 +29,35 @@ const { count, error: enrollmentError } = await supabase
 
 if (!enrollmentError) {
   setCourseCount(count || 0);
+}
+const { data: enrollmentData, error: progressError } = await supabase
+  .from("enrollments")
+  .select("course_id")
+  .eq("user_id", user.id)
+  .eq("status", "active");
+
+if (progressError) {
+  console.error("ENROLLMENT DATA ERROR:", progressError);
+} else if (enrollmentData && enrollmentData.length > 0) {
+  const courseIds = enrollmentData.map((item) => item.course_id);
+
+  const { data: lessonData, error: lessonError } = await supabase
+    .from("lessons")
+    .select("id, course_id")
+    .in("course_id", courseIds)
+    .eq("published", true);
+
+ const { data: progressData, error: completedError } = await supabase
+  .from("lesson_progress")
+  .select("lesson_slug")
+  .eq("user_id", user.id)
+  .eq("completed", true);
+  if (lessonError || completedError) {
+    console.error("PROGRESS ERROR:", lessonError || completedError);
+  } else {
+    setTotalLessons(lessonData?.length || 0);
+    setCompletedLessons(progressData?.length || 0);
+  }
 }
       // First get the name from the login user's metadata
       const metadataName = user.user_metadata?.full_name;
@@ -122,7 +153,34 @@ if (!enrollmentError) {
 
             <p className="mt-2 text-slate-500">
               Courses enrolled
-            </p>
+            </p>{totalLessons > 0 && (
+  <div className="mt-5">
+    <div className="flex items-center justify-between text-sm mb-2">
+      <span className="font-semibold text-slate-700">
+        Learning Progress
+      </span>
+      <span className="text-slate-500">
+        {completedLessons} / {totalLessons} lessons
+      </span>
+    </div>
+
+    <div className="w-full h-3 rounded-full bg-slate-200 overflow-hidden">
+      <div
+        className="h-full rounded-full bg-[#0b1026]"
+        style={{
+          width: `${Math.min(
+            100,
+            Math.round((completedLessons / totalLessons) * 100)
+          )}%`,
+        }}
+      />
+    </div>
+
+    <p className="mt-2 text-sm text-slate-500">
+      {Math.round((completedLessons / totalLessons) * 100)}% completed
+    </p>
+  </div>
+)}
             <Link
   href="/learn/fashion-merchandise-planning"
   className="mt-4 inline-block rounded-lg bg-slate-950 px-4 py-2 text-sm font-semibold text-white"
