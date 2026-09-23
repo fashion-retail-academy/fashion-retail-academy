@@ -159,13 +159,13 @@ const studentName =
       `FRA-FMP-${user.id.replace(/-/g, "").slice(0, 8).toUpperCase()}`;
 
     // Cover the template student-name placeholder
-    page.drawRectangle({
-      x: 120 * MM,
-      y: pageHeight - 98 * MM,
-      width: 120 * MM,
-      height: 14 * MM,
-      color: background,
-    });
+page.drawRectangle({
+  x: 70 * MM,
+  y: pageHeight - 98 * MM,
+  width: 160 * MM,
+  height: 14 * MM,
+  color: background,
+});  
 
     // Draw student name
     const nameSize = 27;
@@ -229,14 +229,7 @@ const studentName =
       color: darkText,
     });
 
-    // Keep certificate title/course visually consistent
-    page.drawText("FASHION RETAIL ACADEMY", {
-      x: pageWidth / 2 - 35 * MM,
-      y: pageHeight - 38 * MM,
-      size: 20,
-      font: boldFont,
-      color: navy,
-    });
+   
 
 const pdfBytes = await pdfDoc.save();
 const pdfBody = Buffer.from(pdfBytes);
