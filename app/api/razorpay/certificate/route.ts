@@ -36,20 +36,9 @@ export async function GET() {
       );
     }
 
-    // Get student profile
-    const { data: profile, error: profileError } = await supabase
-      .from("profiles")
-      .select("full_name")
-      .eq("id", user.id)
-      .maybeSingle();
-
-    if (profileError) {
-      console.error(profileError);
-      return NextResponse.json(
-        { error: "Unable to load student profile." },
-        { status: 500 }
-      );
-    }
+// Get student name from Supabase Auth metadata
+const studentName =
+  user.user_metadata?.full_name?.trim() || "Student";   
 
     // Get course
     const { data: course, error: courseError } = await supabase
@@ -157,7 +146,7 @@ export async function GET() {
     const gold = rgb(184 / 255, 155 / 255, 94 / 255);
     const darkText = rgb(51 / 255, 51 / 255, 51 / 255);
 
-    const studentName = profile?.full_name?.trim() || "Student";
+ 
 
     const completionDate = new Date().toLocaleDateString("en-IN", {
       day: "2-digit",
