@@ -1,10 +1,17 @@
-﻿import { geolocation } from "@vercel/functions";
-import { createClient } from "@/lib/supabase/server";
+﻿import { createClient } from "@/lib/supabase/server";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const geo = geolocation(request);
+
+    const city =
+      request.headers.get("x-vercel-ip-city") ||
+      request.headers.get("x-vercel-ip-city-name") ||
+      null;
+
+    const country =
+      request.headers.get("x-vercel-ip-country") ||
+      null;
 
     const supabase = await createClient();
 
@@ -13,8 +20,8 @@ export async function POST(request: Request) {
       page: body.page ?? null,
       referrer: body.referrer ?? null,
       device: body.device ?? null,
-      city: geo.city ?? null,
-      country: geo.country ?? null,
+      city,
+      country,
     });
 
     if (error) {
