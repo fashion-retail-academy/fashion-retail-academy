@@ -33,7 +33,7 @@ export default function LoginPage() {
     setMessage("Login successful! Welcome to Fashion Retail Academy.");
 
     setTimeout(() => {
-      window.location.href = "/dashboard";
+      fetch("/api/auth/redirect").then(r => r.json()).then(d => window.location.href = d.destination);
     }, 700);
   }
 
