@@ -121,7 +121,7 @@ export default async function Home() {
 
             <p className="mt-7 max-w-xl text-lg leading-8 text-slate-300">
               Practical learning in merchandise planning, buying, retail
-              finance, Excel and fashion business strategy ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â built from real
+              finance, Excel and fashion business strategy ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â built from real
               industry experience.
             </p>
 
@@ -202,7 +202,7 @@ export default async function Home() {
           </div>
 
           <div className="p-8 text-center">
-            <div className="text-3xl font-bold">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¹ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¾</div>
+            <div className="text-3xl font-bold">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¾</div>
             <div className="mt-2 text-sm text-slate-500">
               Career Possibilities
             </div>
@@ -252,7 +252,7 @@ export default async function Home() {
               <div className="mt-7 flex items-center justify-between">
 
                 <div className="text-2xl font-bold">
-                  <div><div className="text-2xl font-bold">ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¹{Number(course.price).toLocaleString("en-IN")}</div><div className="mt-1 text-xs text-slate-500">ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°Ãƒâ€¹Ã¢â‚¬Â  ${Math.round(Number(course.price) / usdInrRate).toLocaleString("en-US")} USD</div></div>
+          <div><div className="text-2xl font-bold">{String.fromCharCode(8377)}{Number(course.price).toLocaleString("en-IN")}</div><div className="mt-1 text-xs text-slate-500">${Math.round(Number(course.price) / usdInrRate).toLocaleString("en-US")} USD</div></div>
                 </div>
 
                 <Link
@@ -315,7 +315,7 @@ export default async function Home() {
                 <div className="mt-7 flex items-center justify-between">
 
                   <div className="text-2xl font-bold">
-                    <div><div className="text-2xl font-bold">ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¹{Number(template.price).toLocaleString("en-IN")}</div><div className="mt-1 text-xs text-slate-500">ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°Ãƒâ€¹Ã¢â‚¬Â  ${Math.round(Number(template.price) / usdInrRate).toLocaleString("en-US")} USD</div></div>
+          <div><div className="text-2xl font-bold">{String.fromCharCode(8377)}{Number(template.price).toLocaleString("en-IN")}</div><div className="mt-1 text-xs text-slate-500">${Math.round(Number(template.price) / usdInrRate).toLocaleString("en-US")} USD</div></div>
                   </div>
 
                   <button className="rounded-full border border-slate-300 px-5 py-2.5 text-sm font-semibold">
