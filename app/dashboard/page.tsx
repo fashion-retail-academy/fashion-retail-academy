@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -276,7 +276,7 @@ if (progressError) {
 {courseCompleted && (
   <div className="mt-6 rounded-xl border border-emerald-200 bg-emerald-50 p-5">
     <p className="text-lg font-bold text-emerald-800">
-      🎓 Course Completed
+      ðŸŽ“ Course Completed
     </p>
 
     <p className="mt-2 text-sm text-emerald-700">

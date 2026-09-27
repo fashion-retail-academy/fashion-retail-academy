@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 
@@ -68,7 +68,7 @@ export default function VerifyCertificatePage() {
           {result?.valid && (
             <div className="mt-8 rounded-xl border border-emerald-200 bg-emerald-50 p-6">
               <p className="text-lg font-bold text-emerald-800">
-                ✓ Certificate Valid
+                âœ“ Certificate Valid
               </p>
 
               <div className="mt-4 space-y-2 text-slate-700">

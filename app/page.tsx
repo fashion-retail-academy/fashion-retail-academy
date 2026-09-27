@@ -6,20 +6,20 @@ const courses = [
   title: "Fashion Merchandise Planning",
     description:
       "Master MFP, WSSI, OTB, assortment planning, WOS, ROS, sell-through and inventory planning.",
-    price: "â‚¹9,999",
+    price: "₹9,999",
   },
   {
   slug: "advanced-excel-fashion-retail",
   title: "Advanced Excel for Fashion Retail",
     description: "Build professional retail models using Excel, formulas, dashboards and practical business cases.",
-    price: "â‚¹4,999",
+    price: "₹4,999",
   },
   {
   slug: "fashion-retail-buying",
   title: "Fashion Retail Buying",
     description:
       "Learn buying strategy, assortment architecture, option planning, pricing and commercial decision-making.",
-    price: "â‚¹7,999",
+    price: "₹7,999",
   },
 ];
 
@@ -27,17 +27,17 @@ const templates = [
   {
     title: "WSSI Planning Model",
     description: "Professional weekly stock and sales planning template.",
-    price: "â‚¹999",
+    price: "₹999",
   },
   {
     title: "OTB Calculator",
     description: "Plan inventory commitments using open-to-buy principles.",
-    price: "â‚¹999",
+    price: "₹999",
   },
   {
     title: "WOS & ROS Calculator",
     description: "Calculate stock cover, rate of sale and inventory requirements.",
-    price: "â‚¹499",
+    price: "₹499",
   },
 ];
 
@@ -409,5 +409,6 @@ export default function Home() {
     </main>
   );
 }
+
 
 
