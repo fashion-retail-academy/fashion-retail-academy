@@ -74,6 +74,7 @@ export default async function LessonsAdminPage({ params }: PageProps) {
         <h1 className="mt-3 text-4xl font-bold text-slate-900">
           Lesson Manager
         </h1>
+          <a href={`/admin/courses/${id}/lessons/new`} className="mb-6 inline-block rounded-lg bg-[#0b1026] px-5 py-3 font-semibold text-white">+ Add New Lesson</a>
 
         <p className="mt-2 text-lg text-slate-600">
           {course.title}

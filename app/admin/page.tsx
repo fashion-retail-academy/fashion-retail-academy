@@ -48,7 +48,8 @@ export default async function AdminPage() {
           </div>
 
           <h2 className="text-2xl font-bold text-slate-900">
-            Course Management
+            <div className="mb-6"><a href="/admin/courses/new" className="inline-block rounded-lg bg-[#0b1026] px-5 py-3 font-semibold text-white">+ Add New Course</a></div>
+Course Management
           </h2>
 
           {error ? (
@@ -95,3 +96,4 @@ export default async function AdminPage() {
     </main>
   );
 }
+
