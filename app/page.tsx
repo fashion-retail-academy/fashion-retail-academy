@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const courses = [
   {
@@ -6,20 +6,20 @@ const courses = [
   title: "Fashion Merchandise Planning",
     description:
       "Master MFP, WSSI, OTB, assortment planning, WOS, ROS, sell-through and inventory planning.",
-    price: "₹9,999",
+    price: "â‚¹9,999",
   },
   {
   slug: "advanced-excel-fashion-retail",
   title: "Advanced Excel for Fashion Retail",
     description: "Build professional retail models using Excel, formulas, dashboards and practical business cases.",
-    price: "₹4,999",
+    price: "â‚¹4,999",
   },
   {
   slug: "fashion-retail-buying",
   title: "Fashion Retail Buying",
     description:
       "Learn buying strategy, assortment architecture, option planning, pricing and commercial decision-making.",
-    price: "₹7,999",
+    price: "â‚¹7,999",
   },
 ];
 
@@ -27,17 +27,17 @@ const templates = [
   {
     title: "WSSI Planning Model",
     description: "Professional weekly stock and sales planning template.",
-    price: "₹999",
+    price: "â‚¹999",
   },
   {
     title: "OTB Calculator",
     description: "Plan inventory commitments using open-to-buy principles.",
-    price: "₹999",
+    price: "â‚¹999",
   },
   {
     title: "WOS & ROS Calculator",
     description: "Calculate stock cover, rate of sale and inventory requirements.",
-    price: "₹499",
+    price: "â‚¹499",
   },
 ];
 
@@ -110,7 +110,7 @@ export default function Home() {
 
             <p className="mt-7 max-w-xl text-lg leading-8 text-slate-300">
               Practical learning in merchandise planning, buying, retail
-              finance, Excel and fashion business strategy — built from real
+              finance, Excel and fashion business strategy â€” built from real
               industry experience.
             </p>
 
@@ -188,7 +188,7 @@ export default function Home() {
           </div>
 
           <div className="p-8 text-center">
-            <div className="text-3xl font-bold">∞</div>
+            <div className="text-3xl font-bold">âˆž</div>
             <div className="mt-2 text-sm text-slate-500">
               Career Possibilities
             </div>
@@ -404,8 +404,9 @@ export default function Home() {
 
         </div>
 
-      </footer>
+      <div className="mt-8 border-t border-white/10 pt-6 text-center text-sm text-white/60"><a href="/privacy" className="mx-3 hover:text-white">Privacy Policy</a><a href="/terms" className="mx-3 hover:text-white">Terms &amp; Conditions</a><a href="/refund-policy" className="mx-3 hover:text-white">Refund &amp; Cancellation</a></div></footer>
 
     </main>
   );
 }
+
