@@ -7,7 +7,7 @@ export default function VisitorTracker() {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (!pathname) return;
+    if (!pathname || pathname.startsWith("/admin") || pathname.startsWith("/api")) return;
 
     let visitorId = localStorage.getItem("fra_visitor_id");
 
@@ -34,3 +34,4 @@ export default function VisitorTracker() {
 
   return null;
 }
+
