@@ -110,7 +110,7 @@ export default function Home() {
 
             <p className="mt-7 max-w-xl text-lg leading-8 text-slate-300">
               Practical learning in merchandise planning, buying, retail
-              finance, Excel and fashion business strategy â€” built from real
+              finance, Excel and fashion business strategy — built from real
               industry experience.
             </p>
 
@@ -409,6 +409,7 @@ export default function Home() {
     </main>
   );
 }
+
 
 
 
