@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 
@@ -83,6 +83,12 @@ Course Management
                   >
                     Edit Course
                   </Link>
+                          <Link
+                            href={`/admin/courses/${course.id}/lessons`}
+                            className="rounded-lg border border-[#0b1026] px-5 py-2 font-semibold text-[#0b1026]"
+                          >
+                            Manage Lessons
+                          </Link>
                 </div>
               ))}
             </div>
