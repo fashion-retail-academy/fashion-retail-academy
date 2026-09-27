@@ -16,20 +16,20 @@ const courses = [
   title: "Fashion Merchandise Planning",
     description:
       "Master MFP, WSSI, OTB, assortment planning, WOS, ROS, sell-through and inventory planning.",
-    price: "ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¹9,999",
+    price: 19999,
   },
   {
   slug: "advanced-excel-fashion-retail",
   title: "Advanced Excel for Fashion Retail",
     description: "Build professional retail models using Excel, formulas, dashboards and practical business cases.",
-    price: "ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¹4,999",
+    price: 14999,
   },
   {
   slug: "fashion-retail-buying",
   title: "Fashion Retail Buying",
     description:
       "Learn buying strategy, assortment architecture, option planning, pricing and commercial decision-making.",
-    price: "ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¹7,999",
+    price: 17999,
   },
 ];
 
@@ -37,17 +37,17 @@ const templates = [
   {
     title: "WSSI Planning Model",
     description: "Professional weekly stock and sales planning template.",
-    price: "ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¹999",
+    price: 9999,
   },
   {
     title: "OTB Calculator",
     description: "Plan inventory commitments using open-to-buy principles.",
-    price: "ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¹999",
+    price: 1999,
   },
   {
     title: "WOS & ROS Calculator",
     description: "Calculate stock cover, rate of sale and inventory requirements.",
-    price: "ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¹499",
+    price: 4499,
   },
 ];
 
@@ -121,7 +121,7 @@ export default async function Home() {
 
             <p className="mt-7 max-w-xl text-lg leading-8 text-slate-300">
               Practical learning in merchandise planning, buying, retail
-              finance, Excel and fashion business strategy ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â built from real
+              finance, Excel and fashion business strategy ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â built from real
               industry experience.
             </p>
 
@@ -202,7 +202,7 @@ export default async function Home() {
           </div>
 
           <div className="p-8 text-center">
-            <div className="text-3xl font-bold">ÃƒÆ’Ã‚Â¢Ãƒâ€¹Ã¢â‚¬Â Ãƒâ€¦Ã‚Â¾</div>
+            <div className="text-3xl font-bold">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¹ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¾</div>
             <div className="mt-2 text-sm text-slate-500">
               Career Possibilities
             </div>
@@ -252,7 +252,7 @@ export default async function Home() {
               <div className="mt-7 flex items-center justify-between">
 
                 <div className="text-2xl font-bold">
-                  <div><div className="text-2xl font-bold">Ã¢â€šÂ¹{Number(course.price).toLocaleString("en-IN")}</div><div className="mt-1 text-xs text-slate-500">Ã¢â€°Ë† ${Math.round(Number(course.price) / usdInrRate).toLocaleString("en-US")} USD</div></div>
+                  <div><div className="text-2xl font-bold">ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¹{Number(course.price).toLocaleString("en-IN")}</div><div className="mt-1 text-xs text-slate-500">ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°Ãƒâ€¹Ã¢â‚¬Â  ${Math.round(Number(course.price) / usdInrRate).toLocaleString("en-US")} USD</div></div>
                 </div>
 
                 <Link
@@ -315,7 +315,7 @@ export default async function Home() {
                 <div className="mt-7 flex items-center justify-between">
 
                   <div className="text-2xl font-bold">
-                    <div><div className="text-2xl font-bold">Ã¢â€šÂ¹{Number(template.price).toLocaleString("en-IN")}</div><div className="mt-1 text-xs text-slate-500">Ã¢â€°Ë† ${Math.round(Number(template.price) / usdInrRate).toLocaleString("en-US")} USD</div></div>
+                    <div><div className="text-2xl font-bold">ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¹{Number(template.price).toLocaleString("en-IN")}</div><div className="mt-1 text-xs text-slate-500">ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â°Ãƒâ€¹Ã¢â‚¬Â  ${Math.round(Number(template.price) / usdInrRate).toLocaleString("en-US")} USD</div></div>
                   </div>
 
                   <button className="rounded-full border border-slate-300 px-5 py-2.5 text-sm font-semibold">
