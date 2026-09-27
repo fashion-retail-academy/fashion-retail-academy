@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 const courses = [
   {
@@ -139,22 +139,25 @@ export default function Home() {
 
             <div className="mt-8 grid grid-cols-2 gap-4">
               {[
-                "Merchandise Planning",
-                "Buying",
-                "WSSI",
-                "OTB",
-                "WOS & ROS",
-                "Retail Finance",
-                "Advanced Excel",
-                "Business Strategy",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="rounded-2xl border border-slate-700 p-4 text-sm"
-                >
-                  {item}
-                </div>
-              ))}
+  { title: "Merchandise Planning", description: "Learn how to plan sales, stock, margins, assortment and inventory for fashion retail." },
+  { title: "Buying", description: "Learn product selection, assortment, option planning, pricing and commercial buying decisions." },
+  { title: "WSSI", description: "Learn weekly sales and stock planning to control inventory and achieve business targets." },
+  { title: "OTB", description: "Learn open-to-buy planning and how much inventory to purchase within your sales and stock targets." },
+  { title: "WOS & ROS", description: "Learn stock cover and rate of sale to manage inventory productivity and replenishment." },
+  { title: "Retail Finance", description: "Understand sales, margins, costs, profitability, cash flow and key retail financial metrics." },
+  { title: "Advanced Excel", description: "Build practical retail models, calculations, dashboards and analysis using advanced Excel." },
+  { title: "Business Strategy", description: "Understand how product, customers, pricing, channels and finance drive fashion retail growth." },
+].map((item) => (
+  <div
+    key={item.title}
+    className="rounded-2xl border border-slate-700 p-4 text-sm"
+  >
+    <div className="font-medium">{item.title}</div>
+    <div className="mt-2 text-xs leading-5 text-slate-400">
+      {item.description}
+    </div>
+  </div>
+))}
             </div>
           </div>
 
