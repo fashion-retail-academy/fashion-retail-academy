@@ -65,7 +65,7 @@ export default function CoursesPage() {
               Courses
             </a>
 
-            <a href="/Register" className="text-slate-300 hover:text-white">
+            <a href="/register" className="text-slate-300 hover:text-white">
               Register
             </a>
 
