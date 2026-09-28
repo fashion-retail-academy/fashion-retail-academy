@@ -274,7 +274,7 @@ Build practical skills in merchandise planning, buying, retail finance, Excel an
       {/* TEMPLATES */}
       <section id="templates" className="bg-slate-100">
         <div className="mx-auto max-w-7xl px-6 py-24">
-
+                <div className="h-36 rounded-2xl overflow-hidden"><img src="/images/merchandise-planning.png" alt="Fashion Merchandise Planning" className="w-full h-full object-cover" /></div>
           <div className="max-w-2xl">
             <div className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
               Download
