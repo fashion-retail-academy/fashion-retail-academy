@@ -337,7 +337,7 @@ Build practical skills in merchandise planning, buying, retail finance, Excel an
 
         <div className="grid gap-12 md:grid-cols-2 md:items-center">
 
-          <div className="h-96 rounded-3xl bg-slate-200" />
+          <div className="h-96 rounded-3xl overflow-hidden"><img src="/images/academy-about.png" alt="Fashion Retail Academy" className="w-full h-full object-cover" /></div>
 
           <div>
 
