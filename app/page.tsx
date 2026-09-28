@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TemplateSection from "@/components/TemplateSection";
 
 async function getUsdInrRate() {
   try {
@@ -271,66 +272,7 @@ Build practical skills in merchandise planning, buying, retail finance, Excel an
       </section>
 
 
-      {/* TEMPLATES */}
-      <section id="templates" className="bg-slate-100">
-        <div className="mx-auto max-w-7xl px-6 py-24">
-                <div className="h-36 rounded-2xl overflow-hidden"><img src="/images/merchandise-planning.png" alt="Fashion Merchandise Planning" className="w-full h-full object-cover" /></div>
-          <div className="max-w-2xl">
-            <div className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
-              Download
-            </div>
-
-            <h2 className="mt-3 text-4xl font-bold tracking-tight md:text-5xl">
-              Retail Templates
-            </h2>
-
-            <p className="mt-5 text-lg text-slate-600">
-              Ready-to-use Excel models and retail planning tools designed for
-              real-world fashion businesses.
-            </p>
-          </div>
-
-
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-
-            {templates.map((template) => (
-              <div
-                key={template.title}
-                className="rounded-3xl bg-white p-7"
-              >
-
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-900 text-2xl text-white">
-                  XLS
-                </div>
-
-                <h3 className="mt-7 text-xl font-bold">
-                  {template.title}
-                </h3>
-
-                <p className="mt-3 text-sm leading-6 text-slate-600">
-                  {template.description}
-                </p>
-
-                <div className="mt-7 flex items-center justify-between">
-
-                  <div className="text-2xl font-bold">
-          <div><div className="text-2xl font-bold">{String.fromCharCode(8377)}{Number(template.price).toLocaleString("en-IN")}</div><div className="mt-1 text-xs text-slate-500">${Math.round(Number(template.price) / usdInrRate).toLocaleString("en-US")} USD</div></div>
-                  </div>
-
-                  <button className="rounded-full border border-slate-300 px-5 py-2.5 text-sm font-semibold">
-                    View Template
-                  </button>
-
-                </div>
-
-              </div>
-            ))}
-
-          </div>
-
-        </div>
-      </section>
-
+      <TemplateSection usdInrRate={usdInrRate} />
 
       {/* ABOUT */}
       <section id="about" className="mx-auto max-w-7xl px-6 py-24">

@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 
@@ -38,7 +38,13 @@ export default async function AdminPage() {
         </p>
 
         <div className="mt-8 rounded-2xl bg-white p-8 shadow-sm">
-          <div className="mb-8">
+          <div className="mb-8 flex flex-wrap gap-3">
+            <a
+              href="/admin/templates"
+              className="inline-block rounded-lg bg-[#0b1026] px-6 py-3 font-semibold text-white"
+            >
+              Manage Templates
+            </a>
             <Link
               href="/admin/students"
               className="inline-block rounded-lg bg-[#0b1026] px-6 py-3 font-semibold text-white"
@@ -69,7 +75,7 @@ Course Management
                     </h3>
 
                     <p className="mt-2 text-slate-600">
-                      ₹{Number(course.price).toLocaleString("en-IN")}
+                      â‚¹{Number(course.price).toLocaleString("en-IN")}
                     </p>
 
                     <p className="mt-1 text-slate-500">
