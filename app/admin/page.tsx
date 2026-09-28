@@ -75,7 +75,7 @@ Course Management
                     </h3>
 
                     <p className="mt-2 text-slate-600">
-                      â‚¹{Number(course.price).toLocaleString("en-IN")}
+{String.fromCharCode(8377)}{Number(course.price).toLocaleString("en-IN")}
                     </p>
 
                     <p className="mt-1 text-slate-500">
