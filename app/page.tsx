@@ -81,7 +81,7 @@ export default async function Home() {
               Consulting
             </a>
             <a href="/about" className="text-sm hover:text-slate-500">
-              About
+              About Rishi
             </a>
             <a href="#contact" className="text-sm hover:text-slate-500">
               Contact
@@ -367,6 +367,7 @@ Build practical skills in merchandise planning, buying, retail finance, Excel an
     </main>
   );
 }
+
 
 
 
