@@ -80,7 +80,7 @@ export default async function Home() {
             <a href="/consulting/contact" className="text-sm hover:text-slate-500">
               Consulting
             </a>
-            <a href="#about" className="text-sm hover:text-slate-500">
+            <a href="/about" className="text-sm hover:text-slate-500">
               About
             </a>
             <a href="#contact" className="text-sm hover:text-slate-500">
@@ -367,6 +367,8 @@ Build practical skills in merchandise planning, buying, retail finance, Excel an
     </main>
   );
 }
+
+
 
 
 
