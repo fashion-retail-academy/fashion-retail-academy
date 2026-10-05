@@ -80,9 +80,6 @@ export default async function Home() {
             <a href="/consulting/contact" className="text-sm hover:text-slate-500">
               Consulting
             </a>
-            <a href="/consulting/contact" className="text-sm hover:text-slate-500">
-              Consulting
-            </a>
             <a href="#about" className="text-sm hover:text-slate-500">
               About
             </a>
