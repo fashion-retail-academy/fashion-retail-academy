@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import TemplateSection from "@/components/TemplateSection";
 
 async function getUsdInrRate() {
@@ -76,6 +76,12 @@ export default async function Home() {
             </a>
             <a href="#templates" className="text-sm hover:text-slate-500">
               Templates
+            </a>
+            <a href="/consulting/contact" className="text-sm hover:text-slate-500">
+              Consulting
+            </a>
+            <a href="/consulting/contact" className="text-sm hover:text-slate-500">
+              Consulting
             </a>
             <a href="#about" className="text-sm hover:text-slate-500">
               About
@@ -364,6 +370,9 @@ Build practical skills in merchandise planning, buying, retail finance, Excel an
     </main>
   );
 }
+
+
+
 
 
 

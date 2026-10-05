@@ -1,0 +1,435 @@
+﻿import Link from "next/link";
+
+export default function ConsultingContactPage() {
+  return (
+    <main className="min-h-screen bg-white text-slate-900">
+
+      {/* NAVIGATION */}
+      <nav className="border-b border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+
+          <Link href="/" className="block">
+            <div className="text-xl font-bold tracking-tight">
+              FASHION RETAIL
+            </div>
+            <div className="text-xs font-medium tracking-[0.3em] text-slate-500">
+              ACADEMY
+            </div>
+          </Link>
+
+          <div className="hidden items-center gap-8 md:flex">
+            <Link href="/" className="text-sm hover:text-slate-500">
+              Home
+            </Link>
+
+            <Link href="/#courses" className="text-sm hover:text-slate-500">
+              Courses
+            </Link>
+
+            <Link href="/#templates" className="text-sm hover:text-slate-500">
+              Templates
+            </Link>
+
+            <Link
+              href="/consulting"
+              className="text-sm font-semibold"
+            >
+              Consulting
+            </Link>
+
+            <Link href="/#about" className="text-sm hover:text-slate-500">
+              About
+            </Link>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <Link
+              href="/login"
+              className="rounded-full border border-slate-300 px-5 py-2.5 text-sm font-medium hover:bg-slate-50"
+            >
+              Login
+            </Link>
+
+            <Link
+              href="/register"
+              className="rounded-full bg-slate-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-slate-800"
+            >
+              Register
+            </Link>
+          </div>
+
+        </div>
+      </nav>
+
+      {/* HEADER */}
+      <section className="bg-slate-950 text-white">
+        <div className="mx-auto max-w-5xl px-6 py-20">
+
+          <div className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
+            Fashion Retail Consulting
+          </div>
+
+          <h1 className="mt-5 text-5xl font-bold tracking-tight md:text-6xl">
+            Tell us about your
+            <br />
+            fashion business.
+          </h1>
+
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+            Share a few details about your business and what you need help
+            with. We will review your requirement and get back to you.
+          </p>
+
+        </div>
+      </section>
+
+      {/* FORM */}
+      <section className="mx-auto max-w-5xl px-6 py-16">
+
+        <div className="mb-10 rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center">
+  <h2 className="text-2xl font-bold text-slate-900">
+    Prefer to speak directly?
+  </h2>
+  <p className="mt-2 text-slate-600">
+    Book a free 30-minute Fashion Retail Discovery Call with Rishi.
+  </p>
+  <a
+    href="https://calendar.app.google/Fv6tkonCb8jhLRCd9"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="mt-5 inline-block rounded-full bg-slate-900 px-7 py-3 font-semibold text-white hover:bg-slate-700"
+  >
+    Book a Free 30-Minute Discovery Call
+  </a>
+</div>
+<form
+          action="#"
+          method="POST"
+          className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:p-12"
+        >
+
+          {/* PERSONAL DETAILS */}
+          <div>
+
+            <h2 className="text-2xl font-bold">
+              Your Details
+            </h2>
+
+            <p className="mt-2 text-sm text-slate-500">
+              Tell us how we can contact you.
+            </p>
+
+          </div>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+
+            <div>
+              <label className="text-sm font-semibold">
+                Full Name *
+              </label>
+
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="Your full name"
+                className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-slate-900"
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-semibold">
+                Company / Brand
+              </label>
+
+              <input
+                type="text"
+                name="company"
+                placeholder="Company or brand name"
+                className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-slate-900"
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-semibold">
+                Email *
+              </label>
+
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="you@company.com"
+                className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-slate-900"
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-semibold">
+                WhatsApp / Phone *
+              </label>
+
+              <input
+                type="tel"
+                name="phone"
+                required
+                placeholder="+91 XXXXX XXXXX"
+                className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-slate-900"
+              />
+            </div>
+
+          </div>
+
+          {/* BUSINESS DETAILS */}
+          <div className="mt-14 border-t border-slate-200 pt-12">
+
+            <h2 className="text-2xl font-bold">
+              About Your Business
+            </h2>
+
+            <p className="mt-2 text-sm text-slate-500">
+              This helps us understand the scale and nature of your business.
+            </p>
+
+          </div>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+
+            <div>
+              <label className="text-sm font-semibold">
+                Business Type *
+              </label>
+
+              <select
+                name="businessType"
+                required
+                defaultValue=""
+                className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none focus:border-slate-900"
+              >
+                <option value="" disabled>
+                  Select business type
+                </option>
+                <option>Fashion Brand</option>
+                <option>D2C Brand</option>
+                <option>Retailer</option>
+                <option>Multi-Brand Retailer</option>
+                <option>Fashion Startup</option>
+                <option>Manufacturer</option>
+                <option>Investor / New Venture</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="text-sm font-semibold">
+                Number of Stores
+              </label>
+
+              <select
+                name="stores"
+                defaultValue=""
+                className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none focus:border-slate-900"
+              >
+                <option value="" disabled>
+                  Select
+                </option>
+                <option>Online Only</option>
+                <option>1–5</option>
+                <option>6–20</option>
+                <option>21–50</option>
+                <option>51–100</option>
+                <option>100+</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="text-sm font-semibold">
+                Approximate Annual Turnover
+              </label>
+
+              <select
+                name="turnover"
+                defaultValue=""
+                className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none focus:border-slate-900"
+              >
+                <option value="" disabled>
+                  Select range
+                </option>
+                <option>Pre-revenue / Startup</option>
+                <option>Below ₹5 Crore</option>
+                <option>₹5–25 Crore</option>
+                <option>₹25–100 Crore</option>
+                <option>₹100–500 Crore</option>
+                <option>₹500 Crore+</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="text-sm font-semibold">
+                Main Category
+              </label>
+
+              <input
+                type="text"
+                name="category"
+                placeholder="e.g. Menswear, Womenswear, Footwear"
+                className="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-slate-900"
+              />
+            </div>
+
+          </div>
+
+          {/* SERVICES */}
+          <div className="mt-14 border-t border-slate-200 pt-12">
+
+            <h2 className="text-2xl font-bold">
+              What Do You Need Help With?
+            </h2>
+
+            <p className="mt-2 text-sm text-slate-500">
+              Select all areas that are relevant.
+            </p>
+
+            <div className="mt-7 grid gap-4 md:grid-cols-2">
+
+              {[
+                "Buying & Assortment",
+                "Merchandise Planning / WSSI",
+                "OTB / Inventory Planning",
+                "Retail Financial Model",
+                "CAC / ROAS / Profitability",
+                "Excel Retail Systems",
+                "Brand / Business Strategy",
+                "Store / D2C Growth",
+              ].map((service) => (
+                <label
+                  key={service}
+                  className="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-200 p-4 hover:bg-slate-50"
+                >
+                  <input
+                    type="checkbox"
+                    name="services"
+                    value={service}
+                    className="h-4 w-4"
+                  />
+
+                  <span className="text-sm">
+                    {service}
+                  </span>
+                </label>
+              ))}
+
+            </div>
+
+          </div>
+
+          {/* REQUIREMENT */}
+          <div className="mt-14 border-t border-slate-200 pt-12">
+
+            <h2 className="text-2xl font-bold">
+              Tell Us About Your Requirement
+            </h2>
+
+            <p className="mt-2 text-sm text-slate-500">
+              The more detail you provide, the better we can understand how
+              to help.
+            </p>
+
+            <textarea
+              name="requirement"
+              required
+              rows={7}
+              placeholder="Tell us about your business, the problem you are facing, what you want to build or improve, and what outcome you are looking for."
+              className="mt-6 w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-slate-900"
+            />
+
+          </div>
+
+          {/* CONSULTATION FORMAT */}
+          <div className="mt-10">
+
+            <label className="text-sm font-semibold">
+              Preferred Consultation Format
+            </label>
+
+            <div className="mt-4 flex flex-wrap gap-4">
+
+              <label className="flex items-center gap-2 rounded-xl border border-slate-200 px-5 py-3">
+                <input
+                  type="radio"
+                  name="format"
+                  value="Online"
+                  defaultChecked
+                />
+                <span className="text-sm">
+                  Online
+                </span>
+              </label>
+
+              <label className="flex items-center gap-2 rounded-xl border border-slate-200 px-5 py-3">
+                <input
+                  type="radio"
+                  name="format"
+                  value="In-person"
+                />
+                <span className="text-sm">
+                  In-person
+                </span>
+              </label>
+
+            </div>
+
+          </div>
+
+          {/* SUBMIT */}
+          <div className="mt-12 border-t border-slate-200 pt-10">
+
+            <button
+              type="submit"
+              className="rounded-full bg-slate-900 px-8 py-4 font-semibold text-white hover:bg-slate-800"
+            >
+              Submit Consultation Enquiry
+            </button>
+
+            <p className="mt-4 text-xs leading-5 text-slate-500">
+              By submitting this form, you agree that Fashion Retail Academy
+              may contact you regarding your enquiry.
+            </p>
+
+          </div>
+
+        </form>
+
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-slate-200 bg-white">
+
+        <div className="mx-auto max-w-5xl px-6 py-10">
+
+          <div className="font-bold">
+            FASHION RETAIL ACADEMY
+          </div>
+
+          <div className="mt-2 text-sm text-slate-500">
+            Practical education and consulting for fashion retail.
+          </div>
+
+          <div className="mt-6">
+            <Link
+              href="/consulting"
+              className="text-sm font-semibold hover:underline"
+            >
+              ← Back to Consulting
+            </Link>
+          </div>
+
+        </div>
+
+      </footer>
+
+    </main>
+  );
+}
+
+
