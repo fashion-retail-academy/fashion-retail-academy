@@ -1,0 +1,351 @@
+﻿import Link from "next/link";
+
+export default function AboutPage() {
+  return (
+    <main className="min-h-screen bg-white text-slate-950">
+
+      {/* NAVIGATION */}
+      <nav className="border-b border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
+          <Link href="/" className="leading-none">
+            <div className="text-2xl font-bold tracking-tight">FASHION RETAIL</div>
+            <div className="mt-1 text-xs tracking-[0.35em] text-slate-500">
+              ACADEMY
+            </div>
+          </Link>
+
+          <div className="hidden items-center gap-8 md:flex">
+            <Link href="/#courses" className="text-sm hover:text-slate-500">
+              Courses
+            </Link>
+            <Link href="/templates" className="text-sm hover:text-slate-500">
+              Templates
+            </Link>
+            <Link
+              href="/consulting/contact"
+              className="text-sm hover:text-slate-500"
+            >
+              Consulting
+            </Link>
+            <Link
+              href="/about"
+              className="text-sm font-semibold text-slate-950"
+            >
+              About Rishi
+            </Link>
+            <Link href="/#contact" className="text-sm hover:text-slate-500">
+              Contact
+            </Link>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <Link
+              href="/login"
+              className="rounded-full border border-slate-300 px-6 py-3 text-sm font-medium hover:bg-slate-50"
+            >
+              Login
+            </Link>
+            <Link
+              href="/register"
+              className="rounded-full bg-slate-950 px-6 py-3 text-sm font-medium text-white hover:bg-slate-800"
+            >
+              Register
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      {/* HERO */}
+      <section className="bg-slate-950 text-white">
+        <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+          <div className="max-w-4xl">
+            <p className="mb-6 text-sm font-semibold uppercase tracking-[0.3em] text-slate-400">
+              Meet Rishi Tandon
+            </p>
+
+            <h1 className="text-5xl font-bold leading-tight tracking-tight md:text-7xl">
+              Fashion retail experience.
+              <br />
+              Practical business thinking.
+            </h1>
+
+            <p className="mt-8 max-w-3xl text-xl leading-9 text-slate-300">
+              A fashion retail professional, consultant and educator with
+              20+ years of industry experience across buying, merchandising,
+              planning, retail finance, business strategy and brand growth.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* INTRODUCTION */}
+      <section className="mx-auto max-w-5xl px-6 py-20 md:py-28">
+        <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500">
+              About Rishi
+            </p>
+          </div>
+
+          <div className="space-y-6 text-lg leading-8 text-slate-700">
+            <p>
+              I built Fashion Retail Academy to bring practical fashion
+              business knowledge to professionals, entrepreneurs, brands and
+              students.
+            </p>
+
+            <p>
+              My career has given me exposure to both Indian and international
+              fashion businesses, with experience spanning product, buying,
+              merchandising, planning, retail and commercial decision-making.
+            </p>
+
+            <p>
+              My approach is simple: fashion is creative, but a successful
+              fashion business also needs disciplined commercial thinking.
+              Product, pricing, inventory, margins, cash flow, distribution
+              and growth have to work together.
+            </p>
+
+            <p>
+              That is the thinking I bring into consulting and training —
+              practical frameworks, real business logic and tools that can be
+              used to make better decisions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* EDUCATION */}
+      <section className="bg-slate-50">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500">
+              Education
+            </p>
+
+            <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
+              NIFT background.
+            </h2>
+
+            <p className="mt-6 text-lg leading-8 text-slate-600">
+              A foundation in fashion education from the National Institute of
+              Fashion Technology, combined with more than two decades of
+              hands-on fashion retail experience.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* CAREER */}
+      <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500">
+              Career Experience
+            </p>
+
+            <h2 className="mt-4 text-4xl font-bold tracking-tight">
+              Experience across fashion businesses.
+            </h2>
+          </div>
+
+          <div>
+            <p className="mb-8 text-lg leading-8 text-slate-600">
+              My professional experience includes working with established
+              Indian and international fashion businesses, giving me a
+              perspective across different brands, categories, markets and
+              operating models.
+            </p>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                "Raymond / ColorPlus",
+                "G-Star RAW",
+                "French Connection",
+                "Zodiac",
+                "Aditya Birla Group",
+                "VF Corporation",
+                "Lee",
+                "Wrangler",
+                "Dockers",
+                "C&A",
+              ].map((company) => (
+                <div
+                  key={company}
+                  className="rounded-2xl border border-slate-200 bg-white p-6 text-lg font-semibold shadow-sm"
+                >
+                  {company}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* EXPERTISE */}
+      <section className="bg-slate-950 text-white">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-400">
+              Areas of Expertise
+            </p>
+
+            <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
+              Connecting product, numbers and growth.
+            </h2>
+
+            <p className="mt-6 text-lg leading-8 text-slate-300">
+              My consulting and training combines fashion merchandising with
+              the commercial and financial thinking required to build a
+              sustainable fashion business.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              [
+                "Buying & Sourcing",
+                "Product selection, assortment, vendor strategy and commercial buying."
+              ],
+              [
+                "Merchandise Planning",
+                "MFP, WSSI, OTB, forecasting, inventory, WOS, ROS and sell-through."
+              ],
+              [
+                "Pricing & Profitability",
+                "Pricing architecture, margin, markdowns, promotions and profitability."
+              ],
+              [
+                "Retail Finance",
+                "P&L, cash flow, working capital, inventory investment and business planning."
+              ],
+              [
+                "Retail Distribution",
+                "MBO, EBO, LFS, D2C, marketplaces and omnichannel strategy."
+              ],
+              [
+                "Go-to-Market",
+                "Category strategy, channel strategy, launch planning and execution."
+              ],
+              [
+                "Business & Brand Strategy",
+                "Positioning, category architecture, growth strategy and scaling."
+              ],
+              [
+                "Excel Retail Systems",
+                "Practical planning models, financial models, dashboards and decision tools."
+              ],
+            ].map(([title, description]) => (
+              <div
+                key={title}
+                className="rounded-2xl border border-slate-800 p-6"
+              >
+                <h3 className="text-lg font-semibold">{title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-400">
+                  {description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHY RISHI */}
+      <section className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div className="max-w-3xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500">
+            Why Work With Me
+          </p>
+
+          <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
+            Experience that connects the dots.
+          </h2>
+        </div>
+
+        <div className="mt-14 grid gap-6 md:grid-cols-2">
+          {[
+            [
+              "Industry experience, not just theory",
+              "The objective is to bring practical fashion business thinking to real commercial problems."
+            ],
+            [
+              "Merchandising + Finance",
+              "Product and commercial decisions have to work together with margins, inventory, cash and profitability."
+            ],
+            [
+              "Practical business tools",
+              "Consulting and training can be translated into planning models, frameworks and decision-making tools."
+            ],
+            [
+              "Indian + international exposure",
+              "Experience across established Indian groups and international fashion brands provides a broader perspective."
+            ],
+          ].map(([title, description]) => (
+            <div
+              key={title}
+              className="rounded-3xl border border-slate-200 p-8"
+            >
+              <h3 className="text-xl font-bold">{title}</h3>
+              <p className="mt-4 leading-7 text-slate-600">
+                {description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-slate-50">
+        <div className="mx-auto max-w-5xl px-6 py-20 text-center md:py-24">
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500">
+            Let's Talk
+          </p>
+
+          <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
+            Have a fashion business challenge?
+          </h2>
+
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+            Whether you are building a new brand, improving an existing
+            business, expanding distribution or working to improve
+            profitability, let's discuss it.
+          </p>
+
+          <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+            <Link
+              href="/consulting/contact"
+              className="rounded-full bg-slate-950 px-8 py-4 font-semibold text-white hover:bg-slate-800"
+            >
+              Explore Fashion Retail Consulting
+            </Link>
+
+            <a
+              href="https://calendar.app.google/Fv6tkonCb8jhLRCd9"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-slate-300 bg-white px-8 py-4 font-semibold text-slate-950 hover:bg-slate-50"
+            >
+              Book a Free Discovery Call
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-10 text-sm text-slate-500">
+          <div className="font-semibold text-slate-900">
+            FASHION RETAIL ACADEMY
+          </div>
+          <div className="mt-2">
+            Practical education, consulting and tools for fashion retail.
+          </div>
+        </div>
+      </footer>
+
+    </main>
+  );
+}
+
+
