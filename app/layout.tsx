@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  verification: {
+    google: "bASDpdSMTI-MZzt_PbXmAks7rveCVFT_GV-Eg4mxsIs",
+  },
   title: "Fashion Retail Academy | Master Fashion Retail",
   description: "Learn fashion buying, merchandise planning, retail finance, Excel and fashion business strategy through practical courses and real-world retail experience from Fashion Retail Academy.",
 };
@@ -30,6 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     </html>
   );
 }
+
 
 
 
